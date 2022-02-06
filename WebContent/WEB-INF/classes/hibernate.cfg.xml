@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-configuration PUBLIC  
+          "-//Hibernate/Hibernate Configuration DTD 3.0//EN"  
+          "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">  
+  
+<hibernate-configuration>  
+  
+    <session-factory> 
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>  
+        <property name="connection.url">jdbc:mysql://192.168.57.231:3306/vegetable_shopping</property>  
+        <property name="connection.username">root</property>  
+        <property name="connection.password">Naaptol</property>  
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="show_sql">true</property>
+         
+    
+    <mapping resource="com/VegetableShoppingCentre/pojo/Address.hbm.xml" />
+    <mapping resource="com/VegetableShoppingCentre/pojo/Cart.hbm.xml" />
+    <mapping resource="com/VegetableShoppingCentre/pojo/Category.hbm.xml" />
+    <mapping resource="com/VegetableShoppingCentre/pojo/OrderDetail.hbm.xml" /> 
+    <mapping resource="com/VegetableShoppingCentre/pojo/OrderLog.hbm.xml" /> 
+    <mapping resource="com/VegetableShoppingCentre/pojo/Product.hbm.xml" /> 
+    <mapping resource="com/VegetableShoppingCentre/pojo/StateCity.hbm.xml" /> 
+    <mapping resource="com/VegetableShoppingCentre/pojo/UserInfo.hbm.xml" /> 
+    </session-factory>  
+  
+</hibernate-configuration>  

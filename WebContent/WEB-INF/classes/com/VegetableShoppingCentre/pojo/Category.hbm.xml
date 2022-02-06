@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="com.VegetableShoppingCentre.pojo.Category" 
+    table="category"
+>
+
+    <id
+        name="pkCategoryId"
+        type="java.lang.Long"
+        column="pk_category_id"
+    >
+    
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="categoryName"
+        type="java.lang.String"
+        column="category_name"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="description"
+        type="java.lang.String"
+        column="description"
+        length="255"
+    />
+    <property
+        name="level"
+        type="java.lang.Integer"
+        column="level"
+        not-null="true"
+        length="2"
+    />
+    <property
+        name="isRoot"
+        type="java.lang.String"
+        column="isRoot"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="createdby"
+        type="java.lang.Long"
+        column="createdby"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="createddate"
+        type="java.sql.Timestamp"
+        column="createddate"
+        not-null="true"
+        length="19"
+    />
+    <property
+        name="modifiedby"
+        type="java.lang.Long"
+        column="modifiedby"
+        length="20"
+    />
+    <property
+        name="modifieddate"
+        type="java.sql.Timestamp"
+        column="modifieddate"
+        length="19"
+    />
+    <property
+        name="isactive"
+        type="java.lang.String"
+        column="isactive"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="ef1"
+        type="java.lang.String"
+        column="ef1"
+        length="20"
+    />
+    <property
+        name="ef2"
+        type="java.lang.String"
+        column="ef2"
+        length="20"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to Product -->
+    <set
+        name="products"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="fk_category_id" />
+        </key>
+        <one-to-many 
+            class="com.VegetableShoppingCentre.pojo.Product"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to Category -->
+    <set
+        name="categories"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="fk_category_id" />
+        </key>
+        <one-to-many 
+            class="com.VegetableShoppingCentre.pojo.Category"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to Category -->
+    <many-to-one
+        name="category"
+        class="com.VegetableShoppingCentre.pojo.Category"
+        not-null="true"
+    >
+        <column name="fk_category_id" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>
