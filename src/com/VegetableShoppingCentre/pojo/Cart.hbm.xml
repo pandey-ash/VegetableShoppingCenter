@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="com.VegetableShoppingCentre.pojo.Cart" 
+    table="cart"
+>
+
+    <id
+        name="pkCartId"
+        type="java.lang.Long"
+        column="pk_cart_id"
+    >
+    
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="quantity"
+        type="java.lang.Integer"
+        column="quantity"
+        not-null="true"
+        length="5"
+    />
+    <property
+        name="createdby"
+        type="java.lang.Long"
+        column="createdby"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="createddate"
+        type="java.sql.Timestamp"
+        column="createddate"
+        not-null="true"
+        length="19"
+    />
+    <property
+        name="modifiedby"
+        type="java.lang.Long"
+        column="modifiedby"
+        length="20"
+    />
+    <property
+        name="modifieddate"
+        type="java.sql.Timestamp"
+        column="modifieddate"
+        length="19"
+    />
+    <property
+        name="isactive"
+        type="java.lang.String"
+        column="isactive"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="ef1"
+        type="java.lang.String"
+        column="ef1"
+        length="20"
+    />
+    <property
+        name="ef2"
+        type="java.lang.String"
+        column="ef2"
+        length="20"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to Product -->
+    <many-to-one
+        name="product"
+        class="com.VegetableShoppingCentre.pojo.Product"
+        not-null="true"
+    >
+        <column name="fk_product_id" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to UserInfo -->
+    <many-to-one
+        name="userInfo"
+        class="com.VegetableShoppingCentre.pojo.UserInfo"
+        not-null="true"
+    >
+        <column name="fk_user_id" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

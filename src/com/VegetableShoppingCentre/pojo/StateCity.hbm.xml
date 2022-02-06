@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="com.VegetableShoppingCentre.pojo.StateCity" 
+    table="state_city"
+>
+
+    <id
+        name="pkStateCity"
+        type="java.lang.Long"
+        column="pk_state_city"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="state"
+        type="java.lang.String"
+        column="state"
+        length="20"
+    />
+    <property
+        name="city"
+        type="java.lang.String"
+        column="city"
+        length="20"
+    />
+    <property
+        name="createdby"
+        type="java.lang.Long"
+        column="createdby"
+        length="20"
+    />
+    <property
+        name="createddate"
+        type="java.sql.Timestamp"
+        column="createddate"
+        length="19"
+    />
+    <property
+        name="modifiedby"
+        type="java.lang.Long"
+        column="modifiedby"
+        length="20"
+    />
+    <property
+        name="modifieddate"
+        type="java.sql.Timestamp"
+        column="modifieddate"
+        length="19"
+    />
+    <property
+        name="isactive"
+        type="java.lang.String"
+        column="isactive"
+        length="1"
+    />
+    <property
+        name="ef1"
+        type="java.lang.String"
+        column="ef1"
+        length="20"
+    />
+    <property
+        name="ef2"
+        type="java.lang.String"
+        column="ef2"
+        length="20"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to StateCity -->
+    <set
+        name="stateCities"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="fk_state_city" />
+        </key>
+        <one-to-many 
+            class="com.VegetableShoppingCentre.pojo.StateCity"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to StateCity -->
+    <many-to-one
+        name="stateCity"
+        class="com.VegetableShoppingCentre.pojo.StateCity"
+        not-null="true"
+    >
+        <column name="fk_state_city" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to Address -->
+    <set
+        name="addresses"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="fk_state_city" />
+        </key>
+        <one-to-many 
+            class="com.VegetableShoppingCentre.pojo.Address"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

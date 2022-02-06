@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="com.VegetableShoppingCentre.pojo.Address" 
+    table="address"
+>
+
+    <id
+        name="pkAddressId"
+        type="java.lang.Long"
+        column="pk_address_id"
+    >
+    
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="address1"
+        type="java.lang.String"
+        column="address1"
+        not-null="true"
+        length="255"
+    />
+    <property
+        name="landmark"
+        type="java.lang.String"
+        column="landmark"
+        not-null="true"
+        length="255"
+    />
+    <property
+        name="pincode"
+        type="java.lang.Long"
+        column="pincode"
+        not-null="true"
+        length="10"
+    />
+    <property
+        name="billerMobileNo"
+        type="java.lang.Long"
+        column="biller_mobile_no"
+        not-null="true"
+        length="10"
+    />
+    <property
+        name="createdby"
+        type="java.lang.Long"
+        column="createdby"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="createddate"
+        type="java.sql.Timestamp"
+        column="createddate"
+        not-null="true"
+        length="19"
+    />
+    <property
+        name="modifiedby"
+        type="java.lang.Long"
+        column="modifiedby"
+        length="20"
+    />
+    <property
+        name="modifieddate"
+        type="java.sql.Timestamp"
+        column="modifieddate"
+        length="19"
+    />
+    <property
+        name="isactive"
+        type="java.lang.String"
+        column="isactive"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="ef1"
+        type="java.lang.String"
+        column="ef1"
+        length="20"
+    />
+    <property
+        name="ef2"
+        type="java.lang.String"
+        column="ef2"
+        length="20"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to UserInfo -->
+    <many-to-one
+        name="userInfo"
+        class="com.VegetableShoppingCentre.pojo.UserInfo"
+        not-null="true"
+        cascade="all"
+    >
+        <column name="fk_user_id" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to StateCity -->
+    <many-to-one
+        name="stateCity"
+        class="com.VegetableShoppingCentre.pojo.StateCity"
+        not-null="true"
+        cascade="all"
+    >
+        <column name="fk_state_city" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to OrderDetail -->
+    <set
+        name="orderDetails"
+        lazy="true"
+        inverse="true"
+		cascade="all"
+    >
+        <key>
+            <column name="fk_address_id" />
+        </key>
+        <one-to-many 
+            class="com.VegetableShoppingCentre.pojo.OrderDetail"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>
