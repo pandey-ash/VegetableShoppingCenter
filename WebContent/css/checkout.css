@@ -1,0 +1,52 @@
+.checkout-float{float: left}
+.checkout-image{margin-top: 20px;margin-left: 35px; width: 168px; height: 139px;}
+.checkout-name{width: 233px;font-size: 27px;margin-top: 71px;margin-left: 62px;}
+.checkout-quantity{margin-left: 73px;margin-top: 69px;font-size: 26px;}
+.checkout-price{margin-left: 103px;margin-top: 71px;font-size: 25px;}
+.checkout-total-price{font-size: 26px;margin-top: 20px;margin-left: 632px;}
+.place-order{background: green;margin-left: 790px;border: 0px;margin-top: -14px;padding: 12px;}
+
+.checkout-div-spacing{margin-top: 20px;}
+
+.checkout-wrapper{
+width: 927px;
+    margin: 87px 332px;
+    background: white;
+}
+
+.quantity-heading{margin-top: -43px;margin-left: 527px;}
+.price-heading{margin-top: -40px;margin-left: 682px;}
+
+table {
+	margin-left: 337px;
+    margin-top: -33px;
+    font-family: arial, sans-serif;
+    border: 2px solid black;
+    border-collapse: collapse;
+    width: 47%;
+}
+
+td, th {
+    font-size: 23px;
+    border: 2px solid black;
+    text-align: center;
+    padding: 14px;
+}
+.checkout-table{float: left;margin-left: 2px;}
+.loading{left: 43%;
+    width: 234px;
+    height: 218px;
+    margin: 158px 650px;}
+
+.input-style {
+    margin-top: 10px;
+    resize: none;
+    width: 62%
+}
+
+
+
+
+
+
+
